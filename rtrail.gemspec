@@ -10,6 +10,8 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/a-e/rtrail"
   s.platform = Gem::Platform::RUBY
 
+  s.add_dependency 'hashie'
+
   # Basic utilities
   s.add_development_dependency 'rake'
   s.add_development_dependency 'pry'
@@ -19,6 +21,7 @@ Gem::Specification.new do |s|
 
   # Mock webapp to support testing
   s.add_development_dependency 'sinatra'
+  s.add_development_dependency 'sinatra-contrib'
   s.add_development_dependency 'thin'
 
   # For test coverage
