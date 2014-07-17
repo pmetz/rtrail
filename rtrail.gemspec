@@ -31,6 +31,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'yard'
   s.add_development_dependency 'rdiscount'
 
+  # Others
+  s.add_development_dependency 'yajl-ruby'
+
   # Files to distribute
   s.files = `git ls-files`.split("\n")
 

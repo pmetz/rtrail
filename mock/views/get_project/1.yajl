@@ -1,0 +1,4 @@
+json = {
+  :id => 1,
+  :name => "Foo Project"
+}
