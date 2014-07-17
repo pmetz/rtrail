@@ -1,0 +1,8 @@
+json = [
+  {
+    :id => 3,
+    :name => "Third Suite",
+    :project_id => 2,
+  },
+]
+

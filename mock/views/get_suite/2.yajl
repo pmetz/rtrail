@@ -1,0 +1,5 @@
+json = {
+  :id => 2,
+  :name => "Second Suite",
+}
+
