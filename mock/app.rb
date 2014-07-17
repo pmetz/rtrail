@@ -30,7 +30,11 @@ class TestApp < Sinatra::Base
 
   get '/index.php' do
     path, query = parse(params)
-    yajl path.to_sym
+    begin
+      yajl path.to_sym
+    rescue => ex
+      return "TODO: Mock! #{ex.message}"
+    end
   end
 end
 

@@ -48,12 +48,13 @@ module RTrail
     #
     def _request(method, path, data=nil)
       url = URI.parse(@base_url + path)
+      url_with_query = "#{url.path}?#{url.query}"
 
       if method == :post
-        request = Net::HTTP::Post.new(url.path + '?' + url.query)
+        request = Net::HTTP::Post.new(url_with_query)
         request.body = JSON.dump(data)
       else
-        request = Net::HTTP::Get.new(url.path + '?' + url.query)
+        request = Net::HTTP::Get.new(url_with_query)
       end
 
       request.basic_auth(@user, @password)
@@ -80,7 +81,7 @@ module RTrail
         begin
           result = JSON.parse(response.body)
         rescue => ex
-          raise TRailError.new(
+          raise RTrailError.new(
             "Error parsing JSON response: #{ex.message}")
         end
       else
