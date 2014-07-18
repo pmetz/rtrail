@@ -1,8 +1,11 @@
 require_relative 'entity'
 require_relative 'test'
+require_relative 'helpers'
 
 module RTrail
   class Run < Entity
+    include HasCreateTime
+
     # Return a one-line summary of this Run
     def summary
       # TODO: Include these?
@@ -21,10 +24,6 @@ module RTrail
 
     def tests
       return get_entities(Test, data.id)
-    end
-
-    def create_time
-      return Time.at(self[:created_on].to_i).utc
     end
 
     def complete_time

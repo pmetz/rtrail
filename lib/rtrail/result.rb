@@ -1,10 +1,9 @@
 require_relative 'entity'
+require_relative 'helpers'
 
 module RTrail
   class Result < Entity
-    def create_time
-      return Time.at(self[:created_on].to_i).utc
-    end
+    include HasCreateTime
   end
 end # module RTrail
 

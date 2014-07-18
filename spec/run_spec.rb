@@ -36,12 +36,6 @@ module RTrail
         end
       end
 
-      describe "#create_time" do
-        it "returns a Time" do
-          expect(run1.create_time).to be_a(Time)
-        end
-      end
-
       describe "#complete_time" do
         it "returns a Time if `completed_on` is set" do
           expect(run1.complete_time).to be_a(Time)
