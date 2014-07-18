@@ -28,6 +28,11 @@ class TestApp < Sinatra::Base
     end
   end
 
+  # Allow shutting down the app with a request
+  get '/shutdown' do
+    Process.kill('KILL', Process.pid)
+  end
+
   get '/index.php' do
     # FIXME: Handle query (used for suite_id, section_id etc.)
     path, query = parse(params)
