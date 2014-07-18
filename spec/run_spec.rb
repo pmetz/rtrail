@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/run'
 
 module RTrail
   describe Run do

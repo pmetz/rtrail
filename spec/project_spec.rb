@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/project'
 
 module RTrail
   describe Project do

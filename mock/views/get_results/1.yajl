@@ -1,0 +1,3 @@
+json = [
+  eval(File.read('mock/views/get_result/1.yajl')),
+]

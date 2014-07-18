@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/result'
 
 module RTrail
   describe Result do

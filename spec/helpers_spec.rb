@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/helpers'
 require 'hashie'
 
 module RTrail

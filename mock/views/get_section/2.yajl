@@ -1,0 +1,9 @@
+json = {
+  :id => 2,
+  :name => "Second Section",
+  :suite_id => 1,
+  :parent_id => 1,
+  :display_order => 2,
+  :depth => 0,
+}
+

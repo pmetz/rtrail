@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/api'
 
 module RTrail
   describe API do
@@ -16,6 +15,22 @@ module RTrail
         project = api.project("First Project")
         expect(project).to be_a(Project)
         expect(project.name).to eq("First Project")
+      end
+    end
+
+    describe "#runs" do
+      it "returns all Runs for the given Project" do
+        runs = api.runs("First Project")
+        expect(runs).to be_an(Array)
+        expect(runs.first).to be_a(Run)
+      end
+    end
+
+    describe "#cases" do
+      it "returns all Cases for the given Project and Suite" do
+        cases = api.cases("First Project", "First Suite")
+        expect(cases).to be_an(Array)
+        expect(cases.first).to be_a(Case)
       end
     end
   end

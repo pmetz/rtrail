@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/client'
 
 module RTrail
   describe Client do
@@ -30,7 +29,14 @@ module RTrail
     end
 
     describe "#post" do
-      it "sends a POST request"
+      it "sends a POST request" do
+        fields = {
+          :suite_id => 1,
+          :name => "Test Run",
+        }
+        expect(client).to receive(:_request).with(:post, 'add_run/1', fields)
+        client.post("add_run/1", fields)
+      end
     end
   end
 end # module RTrail

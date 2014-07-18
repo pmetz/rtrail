@@ -1,5 +1,4 @@
 require_relative 'spec_helper'
-require 'rtrail/entity'
 
 module RTrail
   describe Entity do

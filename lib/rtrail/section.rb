@@ -1,8 +1,7 @@
 require_relative 'entity'
 
 module RTrail
-  class Case < Entity
-    include HasCreateTime
+  class Section < Entity
   end
 end # module RTrail
 

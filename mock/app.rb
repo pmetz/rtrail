@@ -29,6 +29,7 @@ class TestApp < Sinatra::Base
   end
 
   get '/index.php' do
+    # FIXME: Handle query (used for suite_id, section_id etc.)
     path, query = parse(params)
     begin
       yajl(path.to_sym)
