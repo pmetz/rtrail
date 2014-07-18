@@ -1,13 +1,4 @@
 json = [
-  {
-    :id => 1,
-    :name => "First Suite",
-    :project_id => 1,
-  },
-
-  {
-    :id => 2,
-    :name => "Second Suite",
-    :project_id => 1,
-  },
+  eval(File.read('mock/views/get_suite/1.yajl')),
+  eval(File.read('mock/views/get_suite/1.yajl')),
 ]

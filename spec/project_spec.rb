@@ -32,7 +32,7 @@ module RTrail
       let(:project2) { Project.new(2) }
 
       describe "#initialize" do
-        it "gets the project data" do
+        it "gets the Project data" do
           expect(project1.id).to eq(1)
           expect(project1.name).to eq("First Project")
           expect(project2.id).to eq(2)
