@@ -1,4 +1,6 @@
 json = {
   :id => 2,
-  :name => "Second Run"
+  :name => "Second Run",
+  :created_on => Time.utc(2014, 'jun', 6, 12, 34, 56).to_i,
+  :completed_on => nil,
 }
