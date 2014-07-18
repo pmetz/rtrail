@@ -21,12 +21,13 @@ module RTrail
         return self.name.downcase.gsub(/^.*::/, '')
       end
     end
+
     def client
       return self.class.client
     end
 
     def initialize(id_or_data)
-      if id_or_data.is_a?(Hash)
+      if id_or_data.is_a?(Hash) || id_or_data.is_a?(Entity)
         @data = Hashie::Mash.new(id_or_data)
       else
         @data = fetch(id_or_data)

@@ -7,6 +7,7 @@ module RTrail
         it "returns all Projects" do
           projects = Project.all
           expect(projects).to be_an(Array)
+          expect(projects.first).to be_a(Project)
         end
       end
 

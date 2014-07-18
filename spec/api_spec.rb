@@ -10,6 +10,14 @@ module RTrail
       end
     end
 
+    describe "#projects" do
+      it "returns all Projects" do
+        projects = api.projects
+        expect(projects).to be_an(Array)
+        expect(projects.first).to be_a(Project)
+      end
+    end
+
     describe "#project" do
       it "returns a Project instance" do
         project = api.project("First Project")

@@ -17,19 +17,24 @@ module RTrail
 
     # Convenience methods for commonly-accessed entities
 
+    def projects
+      return Project.all
+    end
+
     def project(project_name)
       return Project.by_name(project_name)
     end
 
+    def suite(project_name, suite_name)
+      return Project.by_name(project_name).suite_by_name(suite_name)
+    end
+
     def runs(project_name)
-      project = Project.by_name(project_name)
-      return project.runs
+      return project(project_name).runs
     end
 
     def cases(project_name, suite_name)
-      project = Project.by_name(project_name)
-      suite = project.suite_by_name(suite_name)
-      return suite.cases
+      return suite(project_name, suite_name).cases
     end
 
   end # class API

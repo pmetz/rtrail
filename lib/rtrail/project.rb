@@ -6,7 +6,9 @@ require_relative 'plan'
 module RTrail
   class Project < Entity
     def self.all
-      return client.get("get_projects")
+      return client.get("get_projects").map do |project|
+        self.new(project)
+      end
     end
 
     def self.by_name(project_name)
