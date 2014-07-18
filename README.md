@@ -1,6 +1,8 @@
 RTrail
 ======
 
+[![Build Status](https://travis-ci.org/a-e/rtrail.svg?branch=master)](https://travis-ci.org/a-e/rtrail)
+
 Ruby object wrapper for the TestRail API.
 
 RTrail uses the [TestRail API v2](http://docs.gurock.com/testrail-api2/start),
