@@ -19,10 +19,10 @@ module RTrail
           expect(project.name).to eq("First Project")
         end
 
-        it "raises RTrailError if no project exists with the given name" do
+        it "raises RTrail::NotFound if no project exists with the given name" do
           expect {
             Project.by_name("Bogus Project Name")
-          }.to raise_error(RTrailError, /not found in TestRail/)
+          }.to raise_error(RTrail::NotFound, /not found in TestRail/)
         end
       end
     end
@@ -47,13 +47,13 @@ module RTrail
           expect(suite.name).to eq("First Suite")
         end
 
-        it "raises RTrailError if no suite exists with the given name" do
+        it "raises RTrail::NotFound if no suite exists with the given name" do
           expect {
             project1.suite_by_name("Third Suite")
-          }.to raise_error(RTrailError, /not found in project/)
+          }.to raise_error(RTrail::NotFound, /not found in project/)
           expect {
             project2.suite_by_name("First Suite")
-          }.to raise_error(RTrailError, /not found in project/)
+          }.to raise_error(RTrail::NotFound, /not found in project/)
         end
       end
 

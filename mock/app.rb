@@ -33,7 +33,8 @@ class TestApp < Sinatra::Base
     begin
       yajl path.to_sym
     rescue => ex
-      return "TODO: Mock! #{ex.message}"
+      halt 400, yajl(:error, :locals => {:error => ex.message})
+      #return "TODO: Mock! #{ex.message}"
     end
   end
 end

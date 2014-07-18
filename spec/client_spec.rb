@@ -21,6 +21,12 @@ module RTrail
         expect(client).to receive(:_request).with(:get, 'get_project/1')
         client.get("get_project/1")
       end
+
+      it "raises RTrail::Error when GET object is not found" do
+        expect {
+          client.get("get_project/999")
+        }.to raise_error(RTrail::Error)
+      end
     end
 
     describe "#post" do

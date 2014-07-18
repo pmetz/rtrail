@@ -1,4 +1,4 @@
 module RTrail
-  class RTrailError < StandardError
-  end
+  class Error < StandardError; end
+  class NotFound < Error; end
 end # module RTrail

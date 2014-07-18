@@ -15,7 +15,7 @@ module RTrail
       end
 
       if result.nil?
-        raise RTrailError.new("Project '#{project_name}' not found in TestRail")
+        raise RTrail::NotFound.new("Project '#{project_name}' not found in TestRail")
       else
         return self.new(result)
       end
@@ -27,7 +27,7 @@ module RTrail
         s.name == suite_name
       end
       if suite.nil?
-        raise RTrailError.new(
+        raise RTrail::NotFound.new(
           "Suite '#{suite_name}' not found in project '#{self.data.name}'")
       end
       return suite

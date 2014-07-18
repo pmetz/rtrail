@@ -72,7 +72,7 @@ module RTrail
     # Parse a Net::HTTPResponse as JSON, and return a Hashie::Mash,
     # or an Array of Hashie::Mash.
     #
-    # @raise [RTrailError]
+    # @raise [RTrail::Error]
     #   If the response code is anything but 200 OK, if the response cannot be
     #   parsed as JSON, or if the parsed JSON is neither a Hash nor Array.
     #
@@ -81,7 +81,7 @@ module RTrail
         begin
           result = JSON.parse(response.body)
         rescue => ex
-          raise RTrailError.new(
+          raise RTrail::Error.new(
             "Error parsing JSON response: #{ex.message}")
         end
       else
@@ -94,7 +94,7 @@ module RTrail
         else
           error = "Unknown error"
         end
-        raise RTrailError.new(
+        raise RTrail::Error.new(
           "TestRail API returned HTTP #{response.code} (#{error})")
       end
 
@@ -103,7 +103,7 @@ module RTrail
       elsif result.is_a?(Array)
         return result.map {|h| Hashie::Mash.new(h)}
       else
-        raise RTrailError.new(
+        raise RTrail::Error.new(
           "Unexpected result type: #{result.class.name}")
       end
     end
