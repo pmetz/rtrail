@@ -1,4 +1,6 @@
 require_relative 'client'
+require_relative 'entity'
+require_relative 'project'
 
 module RTrail
   # High-level API for TestRail
