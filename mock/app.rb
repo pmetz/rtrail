@@ -31,10 +31,19 @@ class TestApp < Sinatra::Base
   get '/index.php' do
     path, query = parse(params)
     begin
-      yajl path.to_sym
+      yajl(path.to_sym)
     rescue => ex
       halt 400, yajl(:error, :locals => {:error => ex.message})
-      #return "TODO: Mock! #{ex.message}"
+    end
+  end
+
+  post '/index.php' do
+    path, query = parse(params)
+    data = Yajl::Parser.parse(request.body.read)
+    begin
+      yajl(path.to_sym, :locals => data)
+    rescue => ex
+      halt 400, yajl(:error, :locals => {:error => ex.message})
     end
   end
 end

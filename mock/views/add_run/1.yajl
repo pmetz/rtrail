@@ -1,0 +1,7 @@
+json = {
+  :id => 4,
+  :name => name,
+  :suite_id => suite_id,
+  :created_on => Time.now.to_i,
+  :completed_on => nil,
+}

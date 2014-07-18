@@ -1,6 +1,7 @@
 json = {
   :id => 1,
   :name => "First Run",
+  :suite_id => 1,
   :created_on => Time.utc(2014, 'jun', 5, 12, 34, 56).to_i,
   :completed_on => Time.utc(2014, 'jun', 5, 13, 34, 56).to_i,
 }

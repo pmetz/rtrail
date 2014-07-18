@@ -81,7 +81,12 @@ module RTrail
       end
 
       describe "#plans" do
-        it "TODO"
+        it "returns all Plans in the Project" do
+          plans = project1.plans
+          expect(plans).to be_an(Array)
+          expect(plans.count).to eq(1)
+          expect(plans.first).to be_a(Plan)
+        end
       end
 
       describe "#runs" do
@@ -99,11 +104,26 @@ module RTrail
       end
 
       describe "#run" do
-        it "TODO"
+        it "returns an existing Run with the same name" do
+          run = project1.run("First Suite", "First Run")
+          expect(run).to be_a(Run)
+          expect(run.id).to eq(1)
+          expect(run.suite_id).to eq(1)
+        end
+
+        it "creates a new Run and returns it" do
+          run = project1.run("First Suite", "New Run Name")
+          expect(run).to be_a(Run)
+          expect(run.suite_id).to eq(1)
+        end
       end
 
       describe "#add_run" do
-        it "TODO"
+        it "returns the new Run" do
+          run = project1.add_run("First Suite", :name => "New Run Name")
+          expect(run).to be_a(Run)
+          expect(run.suite_id).to eq(1)
+        end
       end
     end
 
