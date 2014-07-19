@@ -3,11 +3,17 @@ RTrail
 
 [![Build Status](https://travis-ci.org/a-e/rtrail.svg?branch=master)](https://travis-ci.org/a-e/rtrail)
 
-Ruby object wrapper for the TestRail API.
+Ruby object wrapper for the [TestRail][1] [API v2][2]
 
-RTrail uses the [TestRail API v2](http://docs.gurock.com/testrail-api2/start),
-which means you must use TestRail 3.x or later.
+Please use the [issue tracker][3] to report bugs or request improvements, and
+[fork this repository][4] if you'd like to hack on it.
 
+
+[1]: http://www.gurock.com/testrail/ "TestRail Homepage"
+[2]: http://docs.gurock.com/testrail-api2/start "TestRail API v2 docs"
+
+[3]: https://github.com/a-e/rtrail/issues "RTrail Issue Tracker"
+[4]: https://github.com/a-e/rtrail/fork "Fork RTrail on Github"
 
 Installation
 ------------
@@ -16,9 +22,10 @@ Run from a console:
 
     $ gem install rtrail
 
-Or add to your `Gemfile`:
+Or add to your `Gemfile` before a `bundle install`:
 
     gem 'rtrail'
+
 
 
 Overview
@@ -87,8 +94,18 @@ use; for instance:
 Development
 -----------
 
-To contribute, please fork this repository, and submit a pull request with your
-changes.
+To contribute, please [fork this repository](https://github.com/a-e/rtrail/fork),
+develop your code and write spec tests that cover it, commit to your fork
+and submit a pull request with your changes.
+
+
+References
+----------
+
+- TestRail homepage: http://www.gurock.com/testrail/
+- Another TestRail Ruby client: https://github.com/krobi64/testrail
+- Official TestRail API examples: https://github.com/gurock/testrail-api
+- TestRail API v2 docs: http://docs.gurock.com/testrail-api2/start
 
 
 License
