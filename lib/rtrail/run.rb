@@ -1,10 +1,15 @@
 require_relative 'entity'
 require_relative 'test'
 require_relative 'helpers'
+require_relative 'methods'
 
 module RTrail
   class Run < Entity
-    include HasCreateTime
+    include Methods::Get
+    include Methods::Update
+    include Methods::Delete
+    include Methods::Close
+    include Helpers::HasCreateTime
 
     # Return a one-line summary of this Run
     def summary

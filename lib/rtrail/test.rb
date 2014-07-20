@@ -1,8 +1,11 @@
 require_relative 'entity'
 require_relative 'result'
+require_relative 'methods'
 
 module RTrail
   class Test < Entity
+    include Methods::Get
+
     # Return all Results for this Test.
     def results
       return get_entities(Result, data.id)

@@ -5,6 +5,7 @@ module RTrail
   class Entity
     include Helpers
 
+    # FIXME: Find a better way to do this hinky @@client stuff
     class << self
       def client=(client)
         @@client = client
@@ -26,24 +27,29 @@ module RTrail
       return self.class.client
     end
 
-    def initialize(id_or_data)
-      if id_or_data.is_a?(Hash) || id_or_data.is_a?(Entity)
-        @data = Hashie::Mash.new(id_or_data)
+    # Create a new Entity with the given field data.
+    #
+    # @param [Hash, Entity] data
+    #   Field values to store in the Entity instance, or an
+    #   Entity instance to clone.
+    #
+    def initialize(data={})
+      if data.is_a?(Hash)
+        @data = Hashie::Mash.new(data)
+      elsif data.is_a?(Entity)
+        @data = Hashie::Mash.new(data.data)
       else
-        @data = fetch(id_or_data)
+        raise ArgumentError.new("data must be a Hash or Entity.")
       end
     end
     attr_accessor :data
-
-    # Fetch data for a derived class object.
-    def fetch(id)
-      return client.get("get_#{self.class.basename}/#{id}")
-    end
 
     # Pass-through to Hashie::Mash for attribute access
     def method_missing(meth, *args, &block)
       return data.send(meth, *args, &block)
     end
+
+    # TODO: Factor these out into helper modules
 
     # Return a list of entities retrieved from `get_<thing>s/<id>`.
     def get_entities(klass, parent_id, params={})

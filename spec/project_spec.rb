@@ -28,8 +28,8 @@ module RTrail
     end
 
     context "Instance methods" do
-      let(:project1) { Project.new(1) }
-      let(:project2) { Project.new(2) }
+      let(:project1) { Project.get(1) }
+      let(:project2) { Project.get(2) }
 
       describe "#initialize" do
         it "gets the Project data" do

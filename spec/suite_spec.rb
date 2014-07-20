@@ -6,7 +6,7 @@ module RTrail
     end
 
     context "Instance methods" do
-      let(:suite) { Suite.new(1) }
+      let(:suite) { Suite.get(1) }
 
       describe "#sections" do
         let(:sections) { suite.sections }

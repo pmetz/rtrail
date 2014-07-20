@@ -3,7 +3,7 @@ require_relative 'helpers'
 
 module RTrail
   class Result < Entity
-    include HasCreateTime
+    include Helpers::HasCreateTime
   end
 end # module RTrail
 

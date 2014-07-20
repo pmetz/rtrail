@@ -6,7 +6,7 @@ module RTrail
     end
 
     context "Instance methods" do
-      let(:test) { Test.new(1) }
+      let(:test) { Test.get(1) }
 
       describe "#results" do
         let(:results) { test.results }

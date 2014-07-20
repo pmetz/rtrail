@@ -1,5 +1,30 @@
 module RTrail
   module Helpers
+    # ----------------
+    # Class methods
+    # ----------------
+
+    # Allow `include` to pull in both class and instance methods
+    def self.included(base)
+      base.extend(ClassMethods)
+    end
+
+    module ClassMethods
+      def has_post(*actions)
+        actions.each do |action|
+          define_method(action) do |data|
+            kind = self.class.basename
+            puts "in POST #{action}_#{kind}/#{self.id}, data = #{data.inspect}"
+            #return client.post("#{action}_#{kind}")
+          end
+        end
+      end
+    end
+
+    # ----------------
+    # Instance methods
+    # ----------------
+
     # Return true if `name_or_id` appears to be a numeric id,
     # false otherwise.
     def is_id?(name_or_id)

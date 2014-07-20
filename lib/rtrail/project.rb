@@ -2,9 +2,14 @@ require_relative 'entity'
 require_relative 'suite'
 require_relative 'run'
 require_relative 'plan'
+require_relative 'methods'
 
 module RTrail
   class Project < Entity
+    include Methods::Get
+    include Methods::Update
+    include Methods::Delete
+
     def self.all
       return client.get("get_projects").map do |project|
         self.new(project)
@@ -38,7 +43,7 @@ module RTrail
     # Return a suite with the given name or id in the current project.
     def suite(suite_name_or_id)
       if is_id?(suite_name_or_id)
-        return Suite.new(suite_name_or_id)
+        return Suite.get(suite_name_or_id)
       else
         return suite_by_name(suite_name_or_id)
       end

@@ -6,8 +6,8 @@ module RTrail
     end
 
     context "Instance methods" do
-      let(:run1) { Run.new(1) }
-      let(:run2) { Run.new(2) }
+      let(:run1) { Run.get(1) }
+      let(:run2) { Run.get(2) }
 
       describe "#initialize" do
         it "gets the Run data" do
