@@ -59,14 +59,16 @@ module RTrail
       describe "#suite" do
         it "returns a Suite by id" do
           suite = project1.suite(1)
-          expect(suite).to be_a(Suite).
-            and have_fields(:id => 1, :name => "First Suite")
+          expect(suite).to be_a(Suite)
+          expect(suite.id).to eq(1)
+          expect(suite.name).to eq("First Suite")
         end
 
         it "returns a Suite by name" do
           suite = project1.suite("First Suite")
-          expect(suite).to be_a(Suite).
-            and have_fields(:id => 1, :name => "First Suite")
+          expect(suite).to be_a(Suite)
+          expect(suite.id).to eq(1)
+          expect(suite.name).to eq("First Suite")
         end
       end
 
@@ -103,21 +105,22 @@ module RTrail
         it "returns an existing Run with the same name" do
           run = project1.run("First Suite", "First Run")
           expect(run).to be_a(Run)
-          expect(run).to have_fields(:id => 1, :suite_id => 1)
+          expect(run.id).to eq(1)
+          expect(run.suite_id).to eq(1)
         end
 
         it "creates a new Run and returns it" do
           run = project1.run("First Suite", "New Run Name")
-          expect(run).to be_a(Run).
-            and have_fields(:suite_id => 1)
+          expect(run).to be_a(Run)
+          expect(run.suite_id).to eq(1)
         end
       end
 
       describe "#add_run" do
         it "returns the new Run" do
           run = project1.add_run("First Suite", :name => "New Run Name")
-          expect(run).to be_a(Run).
-            and have_fields(:suite_id => 1)
+          expect(run).to be_a(Run)
+          expect(run.suite_id).to eq(1)
         end
       end
     end
