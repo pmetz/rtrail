@@ -6,17 +6,14 @@ module RTrail
       describe "#all" do
         it "returns all Projects" do
           projects = Project.all
-          expect(projects).to be_an(Array)
-          expect(projects.first).to be_a(Project)
+          expect(projects).to be_a_list_of(Project)
         end
       end
 
       describe "#by_name" do
         it "returns the Project with the given name if it exists" do
           project = Project.by_name("First Project")
-          expect(project).to be_a(Project)
-          expect(project).to_not be_nil
-          expect(project.name).to eq("First Project")
+          expect(project).to be_a(Project).and have_fields(:name => "First Project")
         end
 
         it "raises RTrail::NotFound if no project exists with the given name" do
@@ -33,18 +30,18 @@ module RTrail
 
       describe "#initialize" do
         it "gets the Project data" do
-          expect(project1.id).to eq(1)
-          expect(project1.name).to eq("First Project")
-          expect(project2.id).to eq(2)
-          expect(project2.name).to eq("Second Project")
+          expect(project1).to be_a(Project).
+            and have_fields(:id => 1, :name => "First Project")
+          expect(project2).to be_a(Project).
+            and have_fields(:id => 2, :name => "Second Project")
         end
       end
 
       describe "#suite_by_name" do
         it "gets the Suite with the given name if it exists" do
           suite = project1.suite_by_name("First Suite")
-          expect(suite).to be_a(Suite)
-          expect(suite.name).to eq("First Suite")
+          expect(suite).to be_a(Suite).
+            and have_fields(:name => "First Suite")
         end
 
         it "raises RTrail::NotFound if no suite exists with the given name" do
@@ -60,16 +57,14 @@ module RTrail
       describe "#suite" do
         it "returns a Suite by id" do
           suite = project1.suite(1)
-          expect(suite).to be_a(Suite)
-          expect(suite.id).to eq(1)
-          expect(suite.name).to eq("First Suite")
+          expect(suite).to be_a(Suite).
+            and have_fields(:id => 1, :name => "First Suite")
         end
 
         it "returns a Suite by name" do
           suite = project1.suite("First Suite")
-          expect(suite).to be_a(Suite)
-          expect(suite.id).to eq(1)
-          expect(suite.name).to eq("First Suite")
+          expect(suite).to be_a(Suite).
+            and have_fields(:id => 1, :name => "First Suite")
         end
       end
 
@@ -83,9 +78,8 @@ module RTrail
       describe "#plans" do
         it "returns all Plans in the Project" do
           plans = project1.plans
-          expect(plans).to be_an(Array)
+          expect(plans).to be_a_list_of(Plan)
           expect(plans.count).to eq(1)
-          expect(plans.first).to be_a(Plan)
         end
       end
 
@@ -106,23 +100,22 @@ module RTrail
       describe "#run" do
         it "returns an existing Run with the same name" do
           run = project1.run("First Suite", "First Run")
-          expect(run).to be_a(Run)
-          expect(run.id).to eq(1)
-          expect(run.suite_id).to eq(1)
+          expect(run).to be_a(Run).
+            and have_fields(:id => 1, :suite_id => 1)
         end
 
         it "creates a new Run and returns it" do
           run = project1.run("First Suite", "New Run Name")
-          expect(run).to be_a(Run)
-          expect(run.suite_id).to eq(1)
+          expect(run).to be_a(Run).
+            and have_fields(:suite_id => 1)
         end
       end
 
       describe "#add_run" do
         it "returns the new Run" do
           run = project1.add_run("First Suite", :name => "New Run Name")
-          expect(run).to be_a(Run)
-          expect(run.suite_id).to eq(1)
+          expect(run).to be_a(Run).
+            and have_fields(:suite_id => 1)
         end
       end
     end

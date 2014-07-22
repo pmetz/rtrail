@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
 
   # For testing
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-autotest'
+  s.add_development_dependency 'ZenTest'
 
   # Mock webapp to support testing
   s.add_development_dependency 'sinatra'
@@ -26,6 +28,7 @@ Gem::Specification.new do |s|
 
   # For test coverage
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'coveralls'
 
   # For documentation and markdown support
   s.add_development_dependency 'yard'
