@@ -2,6 +2,7 @@ RTrail
 ======
 
 [![Build Status](https://travis-ci.org/a-e/rtrail.svg?branch=master)](https://travis-ci.org/a-e/rtrail)
+[![Coverage Status](https://coveralls.io/repos/a-e/rtrail/badge.png)](https://coveralls.io/r/a-e/rtrail)
 
 Ruby object wrapper for the [TestRail][1] [API v2][2]
 
