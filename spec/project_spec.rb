@@ -100,8 +100,8 @@ module RTrail
       describe "#run" do
         it "returns an existing Run with the same name" do
           run = project1.run("First Suite", "First Run")
-          expect(run).to be_a(Run).
-            and have_fields(:id => 1, :suite_id => 1)
+          expect(run).to be_a(Run)
+          expect(run).to have_fields(:id => 1, :suite_id => 1)
         end
 
         it "creates a new Run and returns it" do
