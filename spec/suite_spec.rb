@@ -23,6 +23,16 @@ module RTrail
           expect(cases.first).to be_a(Case)
         end
       end
+
+      describe "#section_by_name" do
+        it "gets the Section with the given name if it exists"
+        it "raises RTrail::NotFound if no section exists with the given name"
+      end
+
+      describe "#section" do
+        it "returns a Section by id"
+        it "returns a Section by name"
+      end
     end
   end
 end # module RTrail

@@ -25,6 +25,24 @@ module RTrail
         :section_id => section_id
       )
     end
+
+    def section_by_name(section_name)
+      section = self.sections.find do |s|
+        s.name == section_name
+      end
+      if section.nil?
+        raise RTrail::NotFound.new(
+          "Section '#{section_name}' not found in Suite '#{self.data.name}'")
+      end
+    end
+
+    def section(section_name_or_id)
+      if is_id?(section_name_or_id)
+        return Section.get(section_name_or_id)
+      else
+        return section_by_name(section_name_or_id)
+      end
+    end
   end
 
 end # module RTrail
