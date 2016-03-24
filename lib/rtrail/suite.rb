@@ -27,7 +27,7 @@ module RTrail
     end
 
     def section_by_name(section_name)
-      section = self.sections.find do |s|
+      section = sections.find do |s|
         s.name == section_name
       end
       if section.nil?
