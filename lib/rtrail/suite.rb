@@ -17,7 +17,12 @@ module RTrail
       )
     end
 
-    def cases(section_id=nil)
+    def cases(section_name_or_id=nil)
+      if section_name_or_id
+        section_id = section(section_name_or_id).id
+      else
+        section_id = nil
+      end
       return get_entities(
         Case,
         data.project_id,
@@ -30,9 +35,11 @@ module RTrail
       section = sections.find do |s|
         s.name == section_name
       end
-      if section.nil?
+      if section
+        return section
+      else
         raise RTrail::NotFound.new(
-          "Section '#{section_name}' not found in Suite '#{self.data.name}'")
+          "Section '#{section_name}' not found in Suite '#{data.name}'")
       end
     end
 
@@ -42,6 +49,15 @@ module RTrail
       else
         return section_by_name(section_name_or_id)
       end
+    end
+
+    # Add a Section to the Suite.
+    # Requires :name
+    def add_section(fields={})
+      section_data = fields.merge({
+        :suite_id => data.id,
+      })
+      return add_entity(Section, data.project_id, section_data)
     end
   end
 

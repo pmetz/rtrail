@@ -83,6 +83,12 @@ module RTrail
       })
       return add_entity(Run, data.id, run_data)
     end
+
+    # Add a new Suite to the Project.
+    # Requires :name
+    def add_suite(fields={})
+      return add_entity(Suite, data.id, fields)
+    end
   end
 end # module RTrail
 

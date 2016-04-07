@@ -34,7 +34,7 @@ module RTrail
     #   The data to submit as part of the request. Strings must be UTF-8
     #   encoded.
     #
-    def post(path, data)
+    def post(path, data={})
       _request(:post, path, data)
     end
 

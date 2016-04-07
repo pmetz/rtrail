@@ -46,7 +46,11 @@ module RTrail
 
     # Pass-through to Hashie::Mash for attribute access
     def method_missing(meth, *args, &block)
-      return data.send(meth, *args, &block)
+      if data.respond_to?(meth)
+        return data.send(meth, *args, &block)
+      else
+        super
+      end
     end
 
     # TODO: Factor these out into helper modules
