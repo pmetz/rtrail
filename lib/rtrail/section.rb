@@ -25,6 +25,23 @@ module RTrail
     def add_case(fields={})
       return add_entity(Case, data.id, fields)
     end
+
+    # Add a Section within this Section
+    def add_subsection(fields={})
+      _suite = suite
+      subsection_data = fields.merge({
+        :suite_id => _suite.id,
+        :parent_id => data.id
+      })
+      return add_entity(Section, _suite.project_id, subsection_data)
+    end
+
+    # Return all Subsections in this Section
+    def subsections
+      return suite.sections.select do |sect|
+        sect.parent_id == data.id
+      end
+    end
   end # class Section
 end # module RTrail
 

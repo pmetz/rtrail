@@ -31,6 +31,7 @@ module RTrail
       )
     end
 
+    # Return the first Section with the given name, or raise RTrail::NotFound
     def section_by_name(section_name)
       section = sections.find do |s|
         s.name == section_name
