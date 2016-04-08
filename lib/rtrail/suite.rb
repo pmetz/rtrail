@@ -36,12 +36,11 @@ module RTrail
       section = sections.find do |s|
         s.name == section_name
       end
-      if section
-        return section
-      else
+      if section.nil?
         raise RTrail::NotFound.new(
           "Section '#{section_name}' not found in Suite '#{data.name}'")
       end
+      return section
     end
 
     def section(section_name_or_id)

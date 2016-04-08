@@ -20,17 +20,15 @@ module RTrail
       result = Project.all.find do |project|
         project.name == project_name
       end
-
       if result.nil?
         raise RTrail::NotFound.new("Project '#{project_name}' not found in TestRail")
-      else
-        return self.new(result)
       end
+      return self.new(result)
     end
 
     # Return a suite with the given name in the current project.
     def suite_by_name(suite_name)
-      suite = self.suites.find do |s|
+      suite = suites.find do |s|
         s.name == suite_name
       end
       if suite.nil?
