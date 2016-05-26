@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "rtrail"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.summary = "Ruby object wrapper for TestRail API"
   s.description = <<-EOS
     RTrail wraps the TestRail API v2.0 in Ruby objects
