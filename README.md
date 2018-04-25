@@ -36,13 +36,13 @@ RTrail provides a hierarchy of Ruby objects, mirroring the data structure
 within TestRail. Here's a rough look:
 
 - Project(s)
-  - Plan(s)
-  - Suite(s)
-    - Case(s)
-    - Section(s)
-  - Run(s)
-    - Test(s)
-      - Result(s)
+    - Plan(s)
+    - Suite(s)
+        - Case(s)
+        - Section(s)
+    - Run(s)
+        - Test(s)
+            - Result(s)
 
 Within RTrail, each of these things are modeled by a class, with a common base
 class known as `Entity`.
