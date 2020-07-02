@@ -4,6 +4,7 @@
   'client',
   'entity',
   'exceptions',
+  'hashie',
   'plan',
   'project',
   'result',

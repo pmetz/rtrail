@@ -99,9 +99,9 @@ module RTrail
       end
 
       if result.is_a?(Hash)
-        return Hashie::Mash.new(result)
+        return Hashie.new(result)
       elsif result.is_a?(Array)
-        return result.map {|h| Hashie::Mash.new(h)}
+        return result.map {|h| Hashie.new(h)}
       else
         raise RTrail::Error.new(
           "Unexpected result type: #{result.class.name}")

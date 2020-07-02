@@ -35,9 +35,9 @@ module RTrail
     #
     def initialize(data={})
       if data.is_a?(Hash)
-        @data = Hashie::Mash.new(data)
+        @data = Hashie.new(data)
       elsif data.is_a?(Entity)
-        @data = Hashie::Mash.new(data.data)
+        @data = Hashie.new(data.data)
       else
         raise ArgumentError.new("data must be a Hash or Entity.")
       end
